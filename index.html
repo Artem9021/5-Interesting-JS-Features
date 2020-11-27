@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+           
+
+        <title>5 Interesting things you can do with JS</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" src = "app.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id = "main">
+            <div id = "nav_wrap"><nav id = "topnav"><p id = "title" onclick = "scrollToTop()">Welcome</p><p id = "hamburger" onclick = "openSideNav()">&#9776;</p></nav></div>
+            
+            <div id = "sidenav">
+            <div class = "buttondiv">
+                <button onclick = " openSideNav()">Close</button>
+                <button onclick = "about()">About</button>
+            </div>
+            </div>
+            
+            <div class = "section visible">
+                <h3>Welcome!</h3>
+                <p>Here you can find 5 interesting things you can do with JS that you might not know. Some of them are just for fun, but some of them may be handy in real projects! Press the "next" button to proceed!</p>
+                
+                
+                 
+            </div>
+             <div class = "section">
+                <h3>Get battery stats</h3>
+                <p>Let's get started! Did you know that you can get battery level of user's device? To do it you have to call <b>navigator.getBattery</b> function. It returns a battery promise. The battery level is being stored in "level".
+                iOS (iphones and ipads) does not support battery level detection with JS.
+               </p>       
+               <p class = "code">
+               <br />
+                navigator.getBattery().then(
+                <br />    function(battery){
+                <br />alert("Your battery level is: " + battery.level * 100 + "%");
+})
+            </p>
+            <p>Press the button below to run the code</p>
+            <div class = "buttondiv">
+            <button onclick="getBatteryStats()">Get battery stats</button>
+            </div>
+                
+            <p>
+                
+            </p>
+            </div>
+            
+            <div class = "section long">
+                <h3>Vibration</h3>
+                <p>With the <b>navigator.vibrate(<i>intvalue</i>)</b> you can vibrate user's device. This function accepts one integer value - the vibration duration in milliseconds.</p>
+                <p class = "code">
+                <br />
+                    navigator.vibrate(1000);
+                </p>
+                 <div class = "buttondiv">
+            <button onclick="vibrate_1second()">Vibrate for 1 second</button>
+            </div>
+            <p>You can also vibrate with a pattern. To do it you have to use the navigator.vibrate() function again, but with an array passed in now. The first item of the array (50) is the duration of vibration, second (100) is a break, third is vibration again and so on.</p>
+            <p class = "code">
+                <br />
+                   navigator.vibrate([50, 100, 50, 100, 200, 10, 10, 20, 20, 20, 20, 100, 100, 400, 50, 100, 50, 100, 200, 10, 10, 20, 20, 20, 20, 100, 100]);
+                </p>
+            <div class = "buttondiv">
+            <button onclick="vibrate_pattern()">Vibrate with a  pattern</button>
+            </div>
+            <p>Note: this will only work on a mobile device excluding iOS ones.</p>
+            </div>
+            
+            
+            
+           
+            
+            
+            
+            
+            
+            
+            
+            <div class = "section"> 
+                <h3>Is device offline or online?</h3>
+                <p>To check if device is online you can use the <b>onLine</b> method of <b>navigator</b> object.</p>
+                <p class = "code">
+                    <br />
+                    alert(navigator.onLine);
+                </p>
+                 <div class = "buttondiv">
+            <button onclick="isOnline()">Check online</button>
+            </div>
+            </div>
+            
+            
+             <div class = "section long"> 
+                <h3>Copy stuff to clipboard</h3>
+                <p>We can copy something to clipboard with <b>document.execCommand('copy');</b> but it won't work if no text is selected. Let's create a text field and a button which will copy everything that user had entered there.
+                Now we can use 
+                <b>document.getElementById("input").select();
+    document.getElementById("input").setSelectionRange(0, 99999);</b> to select text inside our text field.
+    Let's put all our code above in a function and assign is as an onclick property of a button.
+    Putting everything together:
+ </p>
+ <p class = "code">
+ <br />
+     function copySomething(){
+    document.getElementById("input").select();
+    document.getElementById("input").setSelectionRange(0, 99999);
+    document.execCommand('copy');
+    alert("Copied! Now try to paste the text you just copied into the text field below")
+}
+ </p>
+ 
+ <p>Try it out!</p>
+</p>
+                 <div class = "buttondiv">
+                 <input type="text" id="input" placeholder="Type smth here, then press copy button">
+                 <br />
+            <button onclick="copySomething()">Copy</button>
+            
+            
+        <br />
+         <input type = "text" placeholder="Paste text you copied here">
+        </div>
+        </div>
+        </div>
+        
+         <div class = "section"> 
+         
+                <h3>Get OS info</h3>
+                <p>Use <b>navigator.userAgent</b> to get OS info.</p>
+                
+              
+                
+                <p class = "code">
+                <br />
+                alert(navigator.userAgent);
+                </p>
+                 <div class = "buttondiv">
+                     <button onclick = "getOS()">What's my OS?</button>
+                 </div>
+                 </div>
+                 <div class = "section">
+                     <p>That's all! Thanks for reading. Please upvote if you like the code. : -) </p>
+                     <br />
+                     <p class = "code">
+                         <br />
+                         // Have a nice day!
+                     </p>
+                 </div>
+                 
+                 
+                 
+        </div>
+
+     <div id = "bottom_nav_wrap"> 
+                <nav id = "bottom_nav">
+                    <button id = "prev" onclick = "prev()">< Previous</button>
+                    <button id = "next" onclick = "next()">Next > </button>
+                </nav>
+            </div>
+       
+    </body>
+</html>
